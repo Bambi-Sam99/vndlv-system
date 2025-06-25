@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plate History - VNDLV SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="verify-page">
+    <div class="container verify-container">
+        <h1>Plate History for {{ plate_number }}</h1>
+        <p>Total Issues: <strong>{{ issue_count }}</strong></p>
+        {% if history %}
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>User</th>
+                        <th>Issue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in history %}
+                        <tr>
+                            <td>{{ entry.timestamp }}</td>
+                            <td>{{ entry.user }}</td>
+                            <td>{{ entry.issue }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No history found for this plate.</p>
+        {% endif %}
+        <a href="{{ url_for('verify') }}" class="back-link">Back to Verify</a>
+    </div>
+</body>
+</html>

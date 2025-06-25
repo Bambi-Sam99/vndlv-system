@@ -1,0 +1,1283 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+textarea {
+    width: 100%;
+    height: 60px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+textarea::placeholder {
+    color: #888;
+}
+h1, h2 {
+    color: #2c3e50;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* Container for centering content */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-weight: bold;
+}
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #2980b9;
+}
+/* Result Divs for Verify Page */
+#plateResult, #licenseResult {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f4fd;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+}
+/* Table Styles for Admin Page */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #e8f4fd;
+}
+/* Specific Styles for Each Page */
+.login-container {
+    width: 50%;
+    max-width: 400px;
+}
+.verify-container {
+    width: 70%;
+    max-width: 600px;
+}
+.admin-container {
+    width: 90%;
+    max-width: 1000px;
+}
+/* Background Images and Container Styles */
+body.login-page {
+    background-image: url(../images/login_bg.jpg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body.verify-page {
+    background-image: url(../images/verify_bg.jpg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body.admin-page {
+    background-image: url(../images/admin_bg.jpg.jpeg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.login-container, .verify-container, .admin-container {
+    background-color: rgb(254, 254, 255); /* Semi-transparent white for readability */
+    margin-top: 100px; /* Adjust spacing from top */
+    padding: 20px;
+    border-radius: 8px;
+}
+/* Link Row for Navigation (Verify Page) */
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.link-row a {
+    flex: 1;
+    text-align: center;
+}
+.link-row a:first-child {
+    text-align: left;
+}
+.link-row a:last-child {
+    text-align: right;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.link-row a {
+    flex: 1;
+    text-align: center;
+}
+.link-row a:first-child {
+    text-align: left;
+}
+.link-row a:last-child {
+    text-align: right;
+}
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.links-container a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+.links-container a:hover {
+    text-decoration: underline;
+}
+/* Admin Container */
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Header */
+.admin-container h1 {
+    text-align: center;
+    color: #fdfafa;
+    margin-bottom: 20px;
+}
+/* Filter Form */
+form[action$="admin"] {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+form[action$="admin"] label {
+    font-weight: bold;
+}
+form[action$="admin"] input[type="date"],
+form[action$="admin"] button {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+form[action$="admin"] button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+}
+form[action$="admin"] button:hover {
+    background-color: #218838;
+}
+/* Download Button */
+.download-btn .btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+.download-btn .btn:hover {
+    background-color: #0056b3;
+}
+/* Table Styles */
+.table-container {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #333;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/* Feedback Form */
+textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+button[type="submit"] {
+    margin-top: 5px;
+    padding: 6px 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* Link Row */
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #6c757d;
+    color: white;
+    font-weight: bold;
+}
+.link-row a:hover {
+    background-color: #5a6268;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    margin: 10px 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+button {
+    margin-top: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.verify-page {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a, .link-row button {
+    color: #007bff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link-row a:hover, .link-row button:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+/* Styles for filter form */
+.filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+.filter-form select, .filter-form input[type="number"] {
+    width: auto;
+    flex-grow: 1;
+    max-width: 200px;
+}
+.filter-form button {
+    margin-bottom: 0;
+}
+p strong {
+    color: #d9534f;
+    font-size: 18px;
+}body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.verify-page {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a, .link-row button {
+    color: #007bff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link-row a:hover, .link-row button:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+/* Styles for filter form with date picker */
+.filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+.filter-form input[type="text"].flatpickr-input {
+    width: auto;
+    flex-grow: 1;
+    max-width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.filter-form button {
+    margin-bottom: 0;
+}
+p strong {
+    color: #d9534f;
+    font-size: 18px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.verify-page {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a, .link-row button {
+    color: #007bff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link-row a:hover, .link-row button:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+/* Styles for filter form with date pickers */
+.filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.filter-form label {
+    flex: 1 1 100%;
+}
+.filter-form .flatpickr-input {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.filter-form button {
+    margin-bottom: 0;
+}
+p strong {
+    color: #d9534f;
+    font-size: 18px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.verify-page {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], input[type="password"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a, .link-row button {
+    color: #007bff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link-row a:hover, .link-row button:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+/* New styles for login page */
+.login-page {
+    background: linear-gradient(135deg, #007bff 0%, #f4f4f4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+.login-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+.login-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.login-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+.login-button:active {
+    transform: scale(0.98);
+}
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.verify-page {
+    background: linear-gradient(135deg, #007bff 0%, #f4f4f4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], input[type="password"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a, .link-row button {
+    color: #007bff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link-row a:hover, .link-row button:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+/* Styles for admin-like tables (used in admin.html and history.html) */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.admin-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.admin-table tr:hover {
+    background-color: #f1f1f1;
+}
+.admin-table td {
+    color: #333;
+}
+a.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+a.back-link:hover {
+    background-color: #5a6268;
+}
+p strong {
+    color: #d9534f;
+    font-size: 18px;
+}
+
+/* Styles for login page */
+.login-page {
+    background: linear-gradient(135deg, #007bff 0%, #f4f4f4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+.login-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+.login-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.login-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+.login-button:active {
+    transform: scale(0.98);
+}
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
+/* Styles for admin filter form */
+.filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.filter-form .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+.filter-form label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+}
+.filter-form .flatpickr-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.filter-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.filter-form button {
+    margin-bottom: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.admin-page {
+    background: linear-gradient(135deg, #007bff 0%, #f4f4f4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+.verify-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+h1, h2, h3 {
+    color: #333;
+}
+h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type="text"], input[type="number"], input[type="password"], select, input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.link-row a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.link-row a:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+.link-row a:active {
+    transform: scale(0.98);
+}
+/* Styles for admin-like tables */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.admin-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.admin-table tr:hover {
+    background-color: #f1f1f1;
+}
+.admin-table td {
+    color: #333;
+}
+/* Admin-specific button style */
+.admin-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.admin-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+.admin-button:active {
+    transform: scale(0.98);
+}
+/* Download button container */
+.download-btn {
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Table container for responsive design */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+/* Feedback form styling */
+.feedback-form {
+    margin: 0;
+}
+.feedback-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+.feedback-form button {
+    width: 100%;
+}
+/* Pending feedback styling */
+.pending-feedback {
+    color: #6c757d;
+    font-style: italic;
+}
+/* Styles for login page */
+.login-page {
+    background: linear-gradient(135deg, #007bff 0%, #f4f4f4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+.login-container h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form label {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+.login-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+.login-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.login-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+.login-button:active {
+    transform: scale(0.98);
+}
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
+/* Styles for admin filter form */
+.filter-form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.filter-form .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+.filter-form label {
+    font-size: 14px;
+    color: #fcf8f8;
+    text-align: left;
+}
+
+.filter-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.admin-header {
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.admin-header h1 {
+    font-size: 24px;
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+    background-color:#f8f8fa;
+}

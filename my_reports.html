@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Reports - VNDLV SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="verify-page">
+    <div class="container verify-container">
+        <h1>My Reports for {{ username }}</h1>
+        {% if reports %}
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Plate Number</th>
+                        <th>License ID</th>
+                        <th>Timestamp</th>
+                        <th>Issue</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in reports %}
+                        <tr>
+                            <td>{{ report[0] }}</td>
+                            <td>{{ report[1] }}</td>
+                            <td>{{ report[2] }}</td>
+                            <td>{{ report[3] }}</td>
+                            <td>{{ report[4] }}</td>
+                            <td>{{ report[5] if report[5] else 'N/A' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No reports found.</p>
+        {% endif %}
+        <div class="link-row">
+            <a href="/verify">Back to Verification</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VERIFY - VNDLV SYSTEM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="verify-page">
+    <div class="container verify-container">
+        <h1>Welcome, {{ username }}</h1>
+        <h2>Verify Vehicle or License</h2>
+        <form id="plateForm">
+            <label for="plate">Vehicle Plate Number:</label>
+            <input type="text" id="plate" required>
+            <button type="submit">Verify Plate</button>
+        </form>
+        <div id="plateResult"></div>
+        <form id="licenseForm">
+            <label for="license">Driver License ID:</label>
+            <input type="text" id="license" required>
+            <button type="submit">Verify License</button>
+        </form>
+        <div id="licenseResult"></div>
+        <div id="reportSection" style="display: none; margin-top: 20px;">
+            <h3>Report Issue</h3>
+            <p>Plate Number: <span id="reportPlate"></span></p>
+            <p>License ID: <span id="reportLicense"></span></p>
+            <label for="issueDescription">Issue:</label>
+            <input type="text" id="issueDescription">
+            <button onclick="reportIssue()">Submit Report</button>
+        </div>
+        <div id="reportResult"></div>
+        <div class="link-row">
+            <a href="/logout">Logout</a>
+            <a href="/my_reports">My Reports</a>
+            {% if session['role'] == 'admin' %}
+                <a href="/admin">Admin Panel</a>
+                
+            {% else %}
+                <span></span>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#plateForm').submit(function(e) {
+                e.preventDefault();
+                const plateNumber = $('#plate').val();
+                $.ajax({
+                    url: '/verify_plate',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({plate_number: plateNumber}),
+                    success: function(response) {
+                        if (response.status === 'found') {
+                            const details = response.details;
+                            $('#plateResult').html(`
+                                <h3>Vehicle Details</h3>
+                                <p><strong>Plate Number:</strong> ${details.plate}</p>
+                                <p><strong>Owner:</strong> ${details.owner}</p>
+                                <p><strong>Status:</strong> ${details.status}</p>
+                                <p><strong>Model:</strong> ${details.model}</p>
+                                <p><strong>Contact:</strong> ${details.contact}</p>
+                                <button onclick="window.location.href='/plate_history/${details.plate}'">View History</button>
+                            `);
+                            $('#reportSection').show();
+                            $('#reportPlate').text(details.plate);
+                            $('#reportLicense').text('');
+                        } else {
+                            $('#plateResult').html('<p>Vehicle not found</p>');
+                            $('#reportSection').hide();
+                        }
+                    },
+                    error: function() {
+                        $('#plateResult').html('<p>Error verifying plate</p>');
+                    }
+                });
+            });
+
+            $('#licenseForm').submit(function(e) {
+                e.preventDefault();
+                const licenseId = $('#license').val();
+                $.ajax({
+                    url: '/verify_license',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({license_id: licenseId}),
+                    success: function(response) {
+                        if (response.status === 'found') {
+                            const details = response.details;
+                            $('#licenseResult').html(`
+                                <h3>Driver Details</h3>
+                                <p><strong>License ID:</strong> ${details.license_id}</p>
+                                <p><strong>Name:</strong> ${details.name}</p>
+                                <p><strong>Status:</strong> ${details.status}</p>
+                            `);
+                            $('#reportSection').show();
+                            $('#reportLicense').text(details.license_id);
+                            $('#reportPlate').text('');
+                        } else {
+                            $('#licenseResult').html('<p>Driver not found</p>');
+                            $('#reportSection').hide();
+                        }
+                    },
+                    error: function() {
+                        $('#licenseResult').html('<p>Error verifying license</p>');
+                    }
+                });
+            });
+
+            window.reportIssue = function() {
+                const plateNumber = $('#reportPlate').text();
+                const licenseId = $('#reportLicense').text();
+                const issueDescription = $('#issueDescription').val();
+                if (!plateNumber && !licenseId) {
+                    $('#reportResult').html('<p>No plate or license to report</p>');
+                    return;
+                }
+                $.ajax({
+                    url: '/report_issue',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({plate_number: plateNumber || '', license_id: licenseId || '', issue_description: issueDescription}),
+                    success: function(response) {
+                        if (response.status === 'reported') {
+                            $('#reportResult').html('<p>Issue reported successfully</p>');
+                            $('#reportSection').hide();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $('#reportResult').html(`<p>Error reporting issue: ${error}</p>`);
+                    }
+                });
+            };
+
+            window.syncVehicles = function() {
+                $.ajax({
+                    url: '/sync_vehicles',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({}),
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            $('#plateResult').html('<p>Vehicles table populated</p>');
+                        } else {
+                            $('#plateResult').html(`<p>Error: ${response.message}</p>`);
+                        }
+                    },
+                    error: function() {
+                        $('#plateResult').html('<p>Error checking vehicles</p>');
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>

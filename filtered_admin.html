@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <a href="{{ url_for('download_filtered_pdf', start_date=request.args.get('start_date'), end_date=request.args.get('end_date'), issue_filter=request.args.get('issue_filter')) }}">Download as PDF</a>
+    <title> Reports</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+        }
+        th {
+            background-color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reports</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Report ID</th>
+                <th>Reported By</th>
+                <th>Plate Number</th>
+                <th>License ID</th>
+                <th>Timestamp</th>
+                <th>Feedback</th>
+                <th>Issue Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reports %}
+            <tr>
+                <td>{{ report[0] }}</td>
+                <td>{{ report[1] }}</td>
+                <td>{{ report[2] }}</td>
+                <td>{{ report[3] }}</td>
+                <td>{{ report[4] }}</td>
+                <td>{{ report[5] if report[5] else "No feedback" }}</td>
+                <td>{{ report[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+mymy
